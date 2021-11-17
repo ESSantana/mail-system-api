@@ -7,12 +7,12 @@ using System.Reflection;
 
 namespace Sample.Repository.Context
 {
-    public class SampleDbContext : DbContext
+    public class MailSystemDbContext : DbContext
     {
         public readonly DbOptions _dbOptions;
-        public readonly ILogger<SampleDbContext> _logger;
+        public readonly ILogger<MailSystemDbContext> _logger;
 
-        public SampleDbContext(DbContextOptions<SampleDbContext> options, IOptionsMonitor<DbOptions> dbOptions, ILogger<SampleDbContext> logger) : base(options)
+        public MailSystemDbContext(DbContextOptions<MailSystemDbContext> options, IOptionsMonitor<DbOptions> dbOptions, ILogger<MailSystemDbContext> logger) : base(options)
         {
             _dbOptions = dbOptions.CurrentValue;
             _logger = logger;

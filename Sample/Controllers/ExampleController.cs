@@ -18,7 +18,7 @@ namespace Sample.API.Controllers
     public class ExampleController : ControllerBase
     {
         private readonly ILogger<ExampleController> _logger;
-        private readonly IExampleService _service;
+        private readonly IDeliveryService _service;
         private readonly IMapper _mapper;
 
         /// <summary>
@@ -27,7 +27,7 @@ namespace Sample.API.Controllers
         /// <param name="service">Example Service instance</param>
         /// <param name="logger">Logger instance</param>
         /// <param name="mapper">AutoMapper instance</param>
-        public ExampleController(IExampleService service, ILogger<ExampleController> logger, IMapper mapper)
+        public ExampleController(IDeliveryService service, ILogger<ExampleController> logger, IMapper mapper)
         {
             _service = service;
             _logger = logger;

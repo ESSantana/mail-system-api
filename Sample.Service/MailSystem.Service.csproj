@@ -9,8 +9,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Sample.Core\Sample.Core.csproj" />
-    <ProjectReference Include="..\Sample.Repository\Sample.Repository.csproj" />
+    <ProjectReference Include="..\Sample.Core\MailSystem.Core.csproj" />
+    <ProjectReference Include="..\Sample.Repository\MailSystem.Repository.csproj" />
   </ItemGroup>
 
 </Project>

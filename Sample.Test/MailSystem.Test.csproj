@@ -14,9 +14,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Sample.Core\MailSystem.Core.csproj" />
     <ProjectReference Include="..\Sample.Core\Sample.Core.csproj" />
+    <ProjectReference Include="..\Sample.Repository\MailSystem.Repository.csproj" />
     <ProjectReference Include="..\Sample.Repository\Sample.Repository.csproj" />
+    <ProjectReference Include="..\Sample.Service\MailSystem.Service.csproj" />
     <ProjectReference Include="..\Sample.Service\Sample.Service.csproj" />
+    <ProjectReference Include="..\Sample\MailSystem.API.csproj" />
     <ProjectReference Include="..\Sample\Sample.API.csproj" />
   </ItemGroup>
 

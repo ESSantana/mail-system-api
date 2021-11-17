@@ -15,15 +15,15 @@ namespace Sample.Test.ServiceTests
 {
     public class ExampleServiceTest
     {
-        private Mock<IExampleRepository> repository;
-        private ExampleService service;
+        private Mock<IAddressRepository> repository;
+        private DeliveryService service;
 
         [SetUp]
         public void Setup()
         {
-            var logger = new Mock<ILogger<ExampleService>>();
+            var logger = new Mock<ILogger<DeliveryService>>();
             var mapper = AutoMapperFactory.GetMapper();
-            repository = new Mock<IExampleRepository>();
+            repository = new Mock<IAddressRepository>();
 
             repository.Setup(r => r.Get()).Returns(ExampleMockResult.Get());
             repository.Setup(r => r.Get(It.IsAny<long>())).Returns(ExampleMockResult.Get().First());

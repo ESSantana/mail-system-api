@@ -28,7 +28,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Sample.Core\MailSystem.Core.csproj" />
     <ProjectReference Include="..\Sample.Core\Sample.Core.csproj" />
+    <ProjectReference Include="..\Sample.Service\MailSystem.Service.csproj" />
     <ProjectReference Include="..\Sample.Service\Sample.Service.csproj" />
   </ItemGroup>
 

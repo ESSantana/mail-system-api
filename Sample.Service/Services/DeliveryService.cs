@@ -1,36 +1,39 @@
 ﻿using AutoMapper;
+using MailSystem.Core.Entities;
+using MailSystem.Core.Entities.Models;
+using MailSystem.Repository.Repositories.Interfaces;
 using Microsoft.Extensions.Logging;
 using Sample.Core.Entities;
 using Sample.Core.Entities.Models;
-using Sample.Repository.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Sample.Service.Services
 {
-    public class ExampleService : IExampleService
+    public class DeliveryService : IDeliveryService
     {
-        private readonly ILogger<ExampleService> _logger;
+        private readonly ILogger<DeliveryService> _logger;
         private readonly IMapper _mapper;
-        private readonly IExampleRepository _repository;
+        private readonly IDeliveryRepository _repository;
 
-        public ExampleService(IExampleRepository repository, ILogger<ExampleService> logger, IMapper mapper)
+        public DeliveryService(IDeliveryRepository repository, ILogger<DeliveryService> logger, IMapper mapper)
         {
             _repository = repository;
             _logger = logger;
             _mapper = mapper;
         }
 
-        public List<ExampleEntity> Get()
+        public List<Delivery> Get(string trackCode, string type, DateTime? arrivedDate)
         {
             _logger.LogDebug("Get All");
-            var result = _repository.Get();
+            var result = _repository.Get(trackCode, type, arrivedDate);
 
             _logger.LogDebug($"Get All Result: {result.Count} entities");
-            return result.Select(r => _mapper.Map<ExampleEntity>(r)).ToList();
+            return result.Select(r => _mapper.Map<Delivery>(r)).ToList();
         }
 
-        public ExampleEntity Get(long Id)
+        public Delivery Get(long Id)
         {
             _logger.LogDebug("Get");
             if (Id < 1)
@@ -42,21 +45,22 @@ namespace Sample.Service.Services
             var result = _repository.Get(Id);
 
             _logger.LogDebug($"Get result? {result != null}");
-            return _mapper.Map<ExampleEntity>(result);
+            return _mapper.Map<Delivery>(result);
         }
 
-        public int Create(List<ExampleEntity> entities)
+        public int Create(List<Delivery> entities)
         {
             _logger.LogDebug("Create");
 
-            if (entities.Any(x => string.IsNullOrEmpty(x.Name)))
+            var shouldCreate = entities.Any(x => string.IsNullOrEmpty(x.TrackCode) || string.IsNullOrEmpty(x.Type) || x.ReceiverId < 1);
+            if (shouldCreate)
             {
                 _logger.LogWarning("Missing required property 'Name'");
                 return 0;
             }
 
             var filteredEntities = entities.Where(x => x.Id == 0).ToList();
-            var entitiesToCreate = filteredEntities.Select(e => _mapper.Map<ExampleModel>(e)).ToList();
+            var entitiesToCreate = filteredEntities.Select(e => _mapper.Map<DeliveryModel>(e)).ToList();
 
             var result = _repository.Create(entitiesToCreate);
 
@@ -82,7 +86,7 @@ namespace Sample.Service.Services
             return result;
         }
 
-        public ExampleEntity Modify(ExampleEntity entity)
+        public Delivery Modify(Delivery entity)
         {
             _logger.LogDebug("Modify");
             if (entity.Id < 1)
@@ -102,7 +106,7 @@ namespace Sample.Service.Services
             var result = _repository.Modify(_mapper.Map<ExampleModel>(entity));
             _logger.LogDebug($"Modify success? {!string.IsNullOrEmpty(result.Name)}");
 
-            return _mapper.Map<ExampleEntity>(result);
+            return _mapper.Map<Delivery>(result);
         }
     }
 }

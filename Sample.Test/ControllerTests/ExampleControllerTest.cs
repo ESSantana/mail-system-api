@@ -16,14 +16,14 @@ namespace Sample.Test.ControllerTests
     public class ExampleControllerTest
     {
         private ExampleController controller;
-        private Mock<IExampleService> service;
+        private Mock<IDeliveryService> service;
 
         [SetUp]
         public void Setup()
         {
             var mapper = new Mock<IMapper>();
             var logger = new Mock<ILogger<ExampleController>>();
-            service = new Mock<IExampleService>();
+            service = new Mock<IDeliveryService>();
 
             service.Setup(r => r.Get()).Returns(ExampleMockResult.Get());
             service.Setup(r => r.Get(It.IsAny<long>())).Returns(ExampleMockResult.Get().First());
