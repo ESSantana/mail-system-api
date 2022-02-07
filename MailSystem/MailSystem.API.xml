@@ -1,0 +1,172 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MailSystem.API</name>
+    </assembly>
+    <members>
+        <member name="T:MailSystem.API.Controllers.AddressController">
+            <summary>
+            Address endpoints
+            </summary>
+        </member>
+        <member name="M:MailSystem.API.Controllers.AddressController.#ctor(MailSystem.Service.Services.Interfaces.IAddressService,Microsoft.Extensions.Logging.ILogger{MailSystem.API.Controllers.AddressController},AutoMapper.IMapper)">
+            <summary>
+            constructor
+            </summary>
+            <param name="service">Address Service instance</param>
+            <param name="logger">Logger instance</param>
+            <param name="mapper">AutoMapper instance</param>
+        </member>
+        <member name="M:MailSystem.API.Controllers.AddressController.Get(System.String,System.String,System.String,System.String)">
+            <summary>
+            Get all addresses
+            </summary>
+            <returns>List of addresses</returns>
+        </member>
+        <member name="M:MailSystem.API.Controllers.AddressController.Get(System.Int64)">
+            <summary>
+            Get address by id
+            </summary>
+            <param name="id">Address id</param>
+            <returns>Address with id requested</returns>
+        </member>
+        <member name="M:MailSystem.API.Controllers.AddressController.Create(System.Collections.Generic.List{MailSystem.API.DTO.AddressDTO})">
+            <summary>
+            Create a new address
+            </summary>
+            <param name="addressesDTO">Address format</param>
+            <returns>Number of addresses created</returns>
+        </member>
+        <member name="M:MailSystem.API.Controllers.AddressController.Modify(MailSystem.API.DTO.AddressDTO)">
+            <summary>
+            Modify specific address
+            </summary>
+            <param name="addressDto">Address to modify</param>
+            <returns>Address modified</returns>
+        </member>
+        <member name="M:MailSystem.API.Controllers.AddressController.Delete(System.Int64)">
+            <summary>
+            Delete by id
+            </summary>
+            <param name="id">Id of the address that should be deleted</param>
+            <returns>Number of address deleted</returns>
+        </member>
+        <member name="T:MailSystem.API.Controllers.AuthenticationController">
+            <summary>
+            Endpoints in charge of handling authentication request
+            </summary>
+        </member>
+        <member name="M:MailSystem.API.Controllers.AuthenticationController.#ctor(Microsoft.Extensions.Logging.ILogger{MailSystem.API.Controllers.AuthenticationController})">
+            <summary>
+            Constructor
+            </summary>
+            <param name="logger">Logger instance</param>
+        </member>
+        <member name="M:MailSystem.API.Controllers.AuthenticationController.Authenticate">
+            <summary>
+            Get token to access others endpoints
+            </summary>
+            <returns>Return object with auth info</returns>
+        </member>
+        <member name="M:MailSystem.API.Controllers.AuthenticationController.IsTokenValide">
+            <summary>
+            Check if your token is valid
+            </summary>
+            <returns>Returns string if is valid</returns>
+        </member>
+        <member name="T:MailSystem.API.Controllers.DeliveryController">
+            <summary>
+            Delivery endpoints
+            </summary>
+        </member>
+        <member name="M:MailSystem.API.Controllers.DeliveryController.#ctor(MailSystem.Service.Services.IDeliveryService,Microsoft.Extensions.Logging.ILogger{MailSystem.API.Controllers.DeliveryController},AutoMapper.IMapper)">
+            <summary>
+            constructor
+            </summary>
+            <param name="service">Delivery service instance</param>
+            <param name="logger">Logger instance</param>
+            <param name="mapper">AutoMapper instance</param>
+        </member>
+        <member name="M:MailSystem.API.Controllers.DeliveryController.Get(System.String,System.String,System.Nullable{System.DateTime})">
+            <summary>
+            Get all deliveries
+            </summary>
+            <returns>List of deliveries</returns>
+        </member>
+        <member name="M:MailSystem.API.Controllers.DeliveryController.Get(System.Int64)">
+            <summary>
+            Get delivery by id
+            </summary>
+            <param name="id">Delivery id</param>
+            <returns>Devilery with id requested</returns>
+        </member>
+        <member name="M:MailSystem.API.Controllers.DeliveryController.Create(System.Collections.Generic.List{MailSystem.API.DTO.DeliveryDTO})">
+            <summary>
+            Create a new delivery
+            </summary>
+            <param name="deliveriesDto">delivery format</param>
+            <returns>Number of deliveries created</returns>
+        </member>
+        <member name="M:MailSystem.API.Controllers.DeliveryController.Modify(MailSystem.API.DTO.DeliveryDTO)">
+            <summary>
+            Modify specific delivery
+            </summary>
+            <param name="deliveryDto">Delivery to modify</param>
+            <returns>Delivery modified</returns>
+        </member>
+        <member name="M:MailSystem.API.Controllers.DeliveryController.Delete(System.Int64)">
+            <summary>
+            Delete by id
+            </summary>
+            <param name="id">Id of the delivery that should be deleted</param>
+            <returns>Number of delivery deleted</returns>
+        </member>
+        <member name="T:MailSystem.API.Controllers.ReceiverController">
+            <summary>
+            Receiver endpoints
+            </summary>
+        </member>
+        <member name="M:MailSystem.API.Controllers.ReceiverController.#ctor(MailSystem.Service.Services.Interfaces.IReceiverService,Microsoft.Extensions.Logging.ILogger{MailSystem.API.Controllers.ReceiverController},AutoMapper.IMapper)">
+            <summary>
+            constructor
+            </summary>
+            <param name="service">Receiver Service instance</param>
+            <param name="logger">Logger instance</param>
+            <param name="mapper">AutoMapper instance</param>
+        </member>
+        <member name="M:MailSystem.API.Controllers.ReceiverController.Get(System.String,System.String)">
+            <summary>
+            Get all receivers
+            </summary>
+            <returns>List of receivers</returns>
+        </member>
+        <member name="M:MailSystem.API.Controllers.ReceiverController.Get(System.Int64)">
+            <summary>
+            Get Receiver by id
+            </summary>
+            <param name="id">Receiver id</param>
+            <returns>Receiver with id requested</returns>
+        </member>
+        <member name="M:MailSystem.API.Controllers.ReceiverController.Create(System.Collections.Generic.List{MailSystem.API.DTO.ReceiverDTO})">
+            <summary>
+            Create a new receiver
+            </summary>
+            <param name="receiversDto">Receiver format</param>
+            <returns>Number of receivers created</returns>
+        </member>
+        <member name="M:MailSystem.API.Controllers.ReceiverController.Modify(MailSystem.API.DTO.ReceiverDTO)">
+            <summary>
+            Modify specific receiver
+            </summary>
+            <param name="receiverDto">Receiver to modify</param>
+            <returns>Receiver modified</returns>
+        </member>
+        <member name="M:MailSystem.API.Controllers.ReceiverController.Delete(System.Int64)">
+            <summary>
+            Delete by id
+            </summary>
+            <param name="id">Id of the receiver that should be deleted</param>
+            <returns>Number of receiver deleted</returns>
+        </member>
+    </members>
+</doc>
