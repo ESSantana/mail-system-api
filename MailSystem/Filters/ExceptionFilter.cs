@@ -7,15 +7,26 @@ using System.Net;
 
 namespace MailSystem.API.Filters
 {
+    /// <summary>
+    /// Class to handle all exception thrown
+    /// </summary>
     public class ExceptionFilter : IExceptionFilter
     {
         private readonly IResourceLocalizer _resource;
 
+        /// <summary>
+        /// constructor
+        /// </summary>
+        /// <param name="resource">Object that contains all static messages</param>
         public ExceptionFilter(IResourceLocalizer resource)
         {
             _resource = resource;
         }
 
+        /// <summary>
+        /// Method to handle exception thrown
+        /// </summary>
+        /// <param name="context">Exception context</param>
         public void OnException(ExceptionContext context)
         {
             var status = HttpStatusCode.InternalServerError;

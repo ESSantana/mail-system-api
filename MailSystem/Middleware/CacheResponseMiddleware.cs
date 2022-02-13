@@ -9,17 +9,30 @@ using System.Threading.Tasks;
 
 namespace MailSystem.API.Middleware
 {
+    /// <summary>
+    /// Class to handle cache when it's active
+    /// </summary>
     public class CacheResponseMiddleware
     {
         private readonly RequestDelegate _next;
         private readonly string _redisConnection;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="next">Next step in thread</param>
+        /// <param name="Configuration">Application configuration</param>
         public CacheResponseMiddleware(RequestDelegate next, IConfiguration Configuration)
         {
             _next = next;
             _redisConnection = Configuration.GetConnectionString("RedisConnection");
         }
 
+        /// <summary>
+        /// Method to handle cache 
+        /// </summary>
+        /// <param name="context">Http context</param>
+        /// <returns>System Task</returns>
         public async Task Invoke(HttpContext context)
         {
             await _next(context);

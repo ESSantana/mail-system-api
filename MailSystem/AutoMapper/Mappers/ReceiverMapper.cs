@@ -5,8 +5,15 @@ using MailSystem.Core.Entities.Models;
 
 namespace MailSystem.API.AutoMapper.Mappers
 {
+    /// <summary>
+    /// Class to handle Receiver mapping
+    /// </summary>
     public static class ReceiverMapper
     {
+        /// <summary>
+        /// Method that contains mapper trackers
+        /// </summary>
+        /// <param name="profile">Object that creates mappers between objects</param>
         public static void Map(Profile profile)
         {
             profile.CreateMap<ReceiverDTO, Receiver>();

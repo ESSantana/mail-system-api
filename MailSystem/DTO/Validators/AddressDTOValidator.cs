@@ -3,10 +3,17 @@ using MailSystem.Core.Resources;
 
 namespace MailSystem.API.DTO.Validators
 {
+    /// <summary>
+    /// Class to validate AddressDTO
+    /// </summary>
     public class AddressDTOValidator : AbstractValidator<AddressDTO>
     {
         private readonly IResourceLocalizer _localizer;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="localizer">Object that contains all static messages</param>
         public AddressDTOValidator(IResourceLocalizer localizer)
         {
             _localizer = localizer;

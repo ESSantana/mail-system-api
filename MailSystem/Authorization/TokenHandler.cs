@@ -6,8 +6,16 @@ using System.Text;
 
 namespace MailSystem.Authorization
 {
+    /// <summary>
+    /// Class that handle all about token encryption or decryption
+    /// </summary>
     public static class TokenHandler
     {
+        /// <summary>
+        /// Method responsible for generate new a token
+        /// </summary>
+        /// <param name="user">Object that wrap all properties that will be send as response</param>
+        /// <returns></returns>
         public static string GenerateToken(User user)
         {
             var tokenHandler = new JwtSecurityTokenHandler();

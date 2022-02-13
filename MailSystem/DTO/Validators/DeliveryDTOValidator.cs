@@ -4,9 +4,17 @@ using System;
 
 namespace MailSystem.API.DTO.Validators
 {
+    /// <summary>
+    /// Class to validate DeliveryDTO
+    /// </summary>
     public class DeliveryDTOValidator : AbstractValidator<DeliveryDTO>
     {
         private readonly IResourceLocalizer _localizer;
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="localizer">Object that contains all static messages</param>
         public DeliveryDTOValidator(IResourceLocalizer localizer)
         {
             _localizer = localizer;
